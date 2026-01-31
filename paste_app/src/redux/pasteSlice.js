@@ -10,10 +10,13 @@ export const pasteSlice = createSlice({
   name: 'paste',
   initialState,
   reducers: {
-    addTopastes: (state) => {
-     
+    addTopastes: (state, action) => {
+     const paste = action.payload;
+     state.pastes.push(paste)
+     localStorage.setItem("pastes"),
+     JSON.stringify(state.pastes)
     },
-    UpdateTopastes: (state) => {
+    UpdateTopastes: (state, action) => {
      
     },
     removeTopastes: (state, action) => {
